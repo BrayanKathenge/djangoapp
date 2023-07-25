@@ -1,0 +1,17 @@
+{% extends 'master.html' %}
+{%  load static %}
+{% block content %}
+    <div>
+        <h1 CLASS="text-info text-center">UPDATE PRODUCT</h1>
+        <form class="product-form" method="post"   action="/update-product/{{ product.id }}">
+            <p>{{ success }}</p>
+            {% csrf_token %}
+            <input value="{{ product.name }}" required class="form-control" placeholder="Update Name" name="p-name" type="text"><br>
+            <input value="{{ product.qty }}" required class="form-control" placeholder="Update quantity" name="p-qty" type="text"><br>
+            <input value="{{ product.size }}" required class="form-control" placeholder="Update Size" name="p-size" type="text"><br>
+            <input  value="{{ product.price }}" required class="form-control" placeholder="Update price" name="p-price" type="text"><br>
+            <input class="btn btn-info" value="Update"  type="submit">
+
+        </form>
+    </div>
+{% endblock %}

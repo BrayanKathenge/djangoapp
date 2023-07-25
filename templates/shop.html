@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+    <div>
+            <h1 class="text-center text-info font-italico">All products</h1>
+                {% for message in messages %}
+                        <p class="text-success">{{ message }}</p>
+                     {% endfor %}
+                    <table class="table table-hover table-dark">
+                               <tr>
+                                      <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Pay</th>
+
+                               </tr>
+                                {% for product in product %}
+                                    <tr>
+                                        <td>{{ product.name }}</td>
+                                        <td>{{ product.qty }}</td>
+                                        <td>{{ product.size }}</td>
+                                        <td>{{ product.price }}</td>
+                                        <td><a class="btn btn-success" href="/pay/{{ product.id }}">Pay</a></td>
+
+                                    </tr>
+                                {% endfor %}
+                    </table>
+    </div>
+
+
+{% endblock %}
